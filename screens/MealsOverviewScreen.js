@@ -3,10 +3,10 @@ import { MEALS } from "../data/dummy-data";
 import MealItem from "../components/MealItem";
 
 function MealsOverViewScreen({ route }) {
-  const { title, categoryId } = route.params;
+  const  categoryId  = route.params.categoryId;
 
   const displayedMeals = MEALS.filter((mealItem)=>{
-    return mealItem.categoryIds.indexOf(categoryId >=0);
+    return mealItem.categoryIds.indexOf(categoryId) >= 0;
   });
 
   function renderMealItem(itemData){
