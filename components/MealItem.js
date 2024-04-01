@@ -8,6 +8,7 @@ import {
 } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
+import MealDetails from "./MealDetails";
 
 function MealItem({
   id,
@@ -39,11 +40,7 @@ function MealItem({
             <Text style={styles.title}>{title}</Text>
           </ImageBackground>
         </View>
-        <View style={styles.details}>
-          <Text style={styles.detailsItem}>{duration}</Text>
-          <Text style={styles.detailsItem}>{complexity.toUpperCase()}</Text>
-          <Text style={styles.detailsItem}>{affordability.toUpperCase()}</Text>
-        </View>
+       <MealDetails duration={duration} affordability={affordability} complexity={complexity}/>
       </Pressable>
     </View>
   );
