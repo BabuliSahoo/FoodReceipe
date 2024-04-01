@@ -5,7 +5,6 @@ import CategoryGridTile from "../components/CategoryGridTile";
 function CategoriesScreen({ navigation }) {
   function renderCategoryItem(itemData) {
     function pressHandler() {
-      console.log("pressHandler Presssed :: " + navigation);
       try {
         navigation.navigate("MealsOverView", {
           title: itemData.item.title,
