@@ -5,6 +5,7 @@ import {
   ImageBackground,
   StyleSheet,
   Platform,
+  Image,
 } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
@@ -21,13 +22,13 @@ function MealItem({
   console.log(imageUrl);
 
   const navigation = useNavigation();
-  function selectMealItemHandler(){
+  function selectMealItemHandler() {
     console.log("selectMealItemHandler");
-    navigation.navigate("MealDetail",{
-        mealId:id
+    navigation.navigate("MealDetail", {
+      mealId: id,
     });
   }
-  
+
   return (
     <View style={styles.mealItem}>
       <Pressable
@@ -36,11 +37,23 @@ function MealItem({
         onPress={selectMealItemHandler}
       >
         <View style={styles.innerContainer}>
-          <ImageBackground style={styles.image} source={{ uri: imageUrl }}>
+          <View>
+            <Image style={styles.image} source={{ uri: imageUrl }} />
             <Text style={styles.title}>{title}</Text>
-          </ImageBackground>
+          </View>
+          {/* <View style={styles.details}>
+            <Text style={styles.detailsItem}>{duration}</Text>
+            <Text style={styles.detailsItem}>{complexity.toUpperCase()}</Text>
+            <Text style={styles.detailsItem}>
+              {affordability.toUpperCase()}
+            </Text>
+          </View> */}
+          <MealDetails
+            duration={duration}
+            affordability={affordability}
+            complexity={complexity}
+          />
         </View>
-       <MealDetails duration={duration} affordability={affordability} complexity={complexity}/>
       </Pressable>
     </View>
   );
@@ -76,6 +89,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     padding: 8,
+    justifyContent: "center",
   },
   detailsItem: {
     marginHorizontal: 4,

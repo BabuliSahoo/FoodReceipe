@@ -11,7 +11,6 @@ function MealDetails({ duration, complexity, affordability, style }) {
 }
 
 export default MealDetails;
-
 const styles = StyleSheet.create({
   details: {
     flexDirection: "row",
@@ -22,7 +21,7 @@ const styles = StyleSheet.create({
   detailsItem: {
     marginHorizontal: 4,
     fontSize: 12,
-    color: "white",
+    color: "black",
     textAlign: "center",
   }
 });
