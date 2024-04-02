@@ -17,9 +17,10 @@ const styles = StyleSheet.create({
       textAlign: "center",
     },
     subTitleContainer: {
+      padding:6,
+      marginHorizontal:12,
+      marginVertical:4,
       borderBlockColor: "#e2b497",
       borderBottomWidth: 2,
-      margin: 6,
-      margin: 4,
     },
   });

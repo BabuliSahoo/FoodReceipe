@@ -27,7 +27,7 @@ function MealItem({
         mealId:id
     });
   }
-
+  
   return (
     <View style={styles.mealItem}>
       <Pressable

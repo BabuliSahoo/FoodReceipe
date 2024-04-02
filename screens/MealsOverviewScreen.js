@@ -18,8 +18,6 @@ function MealsOverViewScreen({ route,navigation }) {
     });
   })
 
-
-
   function renderMealItem(itemData){
     const item =itemData.item;
     const mealItemProps ={
@@ -30,9 +28,12 @@ function MealsOverViewScreen({ route,navigation }) {
       complexity: item.complexity,
       duration: item.duration
     }
+    console.log( item.affordability);
+    console.log( item.complexity);
+    console.log( item.duration);
+
     // return <MealItem title={itemData.item.title} imageUrl={itemData.item.imageUrl}/>
     return <MealItem {...mealItemProps}/>
-
   }
 
   return (
