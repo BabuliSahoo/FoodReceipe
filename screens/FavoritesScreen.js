@@ -1,17 +1,43 @@
-import { Text ,StyleSheet} from "react-native";
+import { Text, StyleSheet, View } from "react-native";
+import { useContext } from "react";
+import MealsList from "../components/MealsList/MealsList";
+import { FavoritesContext } from "../store/context/favorites-context";
+import { MEALS } from "../data/dummy-data";
+
 function FavoritesScreen() {
-  return <Text style={styles.favText}>Favorites Screen!</Text>;
+  const favoriteMealsCtx = useContext(FavoritesContext);
+  const favoriteMeals = MEALS.filter((meal) =>
+    favoriteMealsCtx.ids.includes(meal.id)
+  );
+
+  if (favoriteMeals.length === 0) {
+    return (
+      <View style={styles.rootContainer}>
+        <Text style={styles.text}>You have no favorite meals yet.</Text>
+      </View>
+    );
+  }
+  return <MealsList items={favoriteMeals} />;
 }
 
 export default FavoritesScreen;
 
 const styles = StyleSheet.create({
-    favText: {
-      flex: 1,
-      padding: 16,
-      textAlign:'center',
-      fontSize:16,
-      fontWeight:'bold'
-    },
-  });
-  
+  favText: {
+    flex: 1,
+    padding: 16,
+    textAlign: "center",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  rootContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  text: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "white",
+  },
+});
